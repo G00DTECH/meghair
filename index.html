@@ -31,8 +31,10 @@
             color: white;
             padding: 10px;
             text-decoration: none;
+            cursor: pointer;
         }
-       
+        .carousel-button.prev { left: 10px; }
+        .carousel-button.next { right: 10px; }
     </style>
 </head>
 <body class="bg-[#FFC5C5] text-gray-800">
@@ -102,8 +104,8 @@
             <div class="carousel-slide">
               <img src="folder/meg9.jpg" alt="Hairstyle 7" class="w-full">
             </div>
-            <a href="#" class="carousel-button prev">&lt;</a>
-            <a href="#" class="carousel-button next">&gt;</a>
+            <button class="carousel-button prev">&lt;</button>
+            <button class="carousel-button next">&gt;</button>
           </div>
         </section>
     </main>
@@ -139,12 +141,14 @@
             clearInterval(slideInterval);
         }
 
-        prevButton.addEventListener('click', () => {
+        prevButton.addEventListener('click', (e) => {
+            e.preventDefault();
             showSlide(currentSlide - 1);
             stopSlideshow();
         });
 
-        nextButton.addEventListener('click', () => {
+        nextButton.addEventListener('click', (e) => {
+            e.preventDefault();
             showSlide(currentSlide + 1);
             stopSlideshow();
         });
